@@ -1,0 +1,9 @@
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-09-29 23:19:43
+project --topLevelPackage org.pablog --projectName rooMongoDB --java 6 --packaging WAR
+mongo setup 
+entity mongo --class ~.model.Book --testAutomatically 
+repository mongo --entity ~.model.Book --interface ~.repositories.BookRepository
+service type --interface ~.service.BookService --entity ~.model.Book
+web mvc setup
+web mvc scaffold --class ~.web.BookController --backingType ~.model.Book
+web mvc scaffold --class ~.web.PublisherController --backingType ~.model.Publisher
